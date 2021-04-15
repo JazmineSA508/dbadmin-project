@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+        web-server:
+                build: ./web-server 
+                container_name: application
+                restart: on-failure
+                volumes:
+                        - "./web-server:/var/www/html"
+                ports:
+                        - "8880:80"
+                links:
+                        - 'mysql'
+
+        mysql:
+                image: mariadb
+                container_name: database
+                restart: on-failure
+                ports:
+                        - "3306:3306"
+                expose:
+                        - "3306"
+                volumes:
+                        - sql-data:/var/lib/mysql
+                        - ./sql-files/music_collection.sql:/docker-entrypoint-initdb.d/init.sql
+
+                env_file:
+                        - ./web-server/music_collection.env
+        adminer:
+                image: adminer
+                ports:
+                        - "8080:8080"
+
+volumes:
+        sql-data:
