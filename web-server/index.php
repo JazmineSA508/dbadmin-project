@@ -51,7 +51,7 @@
 				<p>This project culminates everything I loved and learned in both my undergraduate and graduate curricula. It utilizes all of my favorite topics from the classes that transformed me the most and left me more determined to continue learning, which I talk about <a href="./mvc.php">here</a>. This project is a culmination of who I am, what I love and what I've learned along the way to becoming an IT professional. I put everything I had into this project to make it as great as possible so I can remember my final project as a student fondly. I hope you enjoy my SuperNova!</p>
 			</section>
 			<section>
-				<h1>Founder's (Current) Top 10 Artists</h1>
+				<h1>My (Current) Top 10 Artists</h1>
 				<?php
 					require_once("autoload.php");
 					
