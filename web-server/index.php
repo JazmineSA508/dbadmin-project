@@ -23,14 +23,14 @@
         	<li><a href="./mvc.php">MVCs</a></li>
         	<li><a href="./tnt.php">TNTs</a></li>
         	<li><a href="./tbd.php">TBDa</a></li>
-        	<li><a href="./diy.php">DIY SQL Statements</a></li>
+        	<li><a href="./thx.php">Thanks + DB Info</a></li>
     	</ul>
 	</nav>
 	<main>
 		<section>
 			<h1>What is Jaz's SuperNova?</h1>
 			<article>
-			<p>Jaz's SuperNova, run by J.S.A. Productions, is the founder's final and most hands-on project that she ever completed as a student at her institution (New Jersey Institute of Technology). What is a SuperNova, you ask? According to NASA:<blockquote><strong>A SuperNova is the largest explosion that takes place in space at the end of a star's life.</strong></blockquote><br>This project is for IT 635 (Database Adminsitration) and pulls from the founder's MariaDB database, named music_collection, which contains the names, discographies, RIAA certifications and Grammy Wins of her Top 10 favorite artists (currently). Each web page will contain a (probably long and sappy) excerpt written by the founder and a list/table of data pulled from the music_collection database. There is also a page to <a href="./diy.php">run your own SQL queries</a>. Since this project symbolizes the end of the founder's college career, this will act as her very own symbolical "SuperNova".</p>
+			<p>Jaz's SuperNova, run by J.S.A. Productions, is the founder's final and most hands-on project that she ever completed as a student at her institution (New Jersey Institute of Technology). What is a SuperNova, you ask? According to NASA:<blockquote><strong>A SuperNova is the largest explosion that takes place in space at the end of a star's life.</strong></blockquote><br>Since this project symbolizes the end of the founder's college career, this will act as her very own symbolical "SuperNova". This project is for IT 635 (Database Adminsitration) and pulls from the founder's MariaDB database, named music_collection, which contains the names, discographies, RIAA certifications and Grammy Wins of her Top 10 favorite artists (currently). Each web page will contain a (probably long and sappy) excerpt written by the founder and a list/table of data pulled from the music_collection database.</p>
 			</article>
 		</section>
         <aside>

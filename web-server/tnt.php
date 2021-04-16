@@ -23,7 +23,7 @@
         	<li><a href="./mvc.php">MVCs</a></li>
         	<li><a href="./tnt.php" class="current">TNTs</a></li>
         	<li><a href="./tbd.php">TBDs</a></li>
-        	<li><a href="./diy.php">DIY SQL Statements</a></li>
+        	<li><a href="./thx.php">Thanks + DB Info</a></li>
     	</ul>
 	</nav>
 	<main>
