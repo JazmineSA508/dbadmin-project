@@ -30,11 +30,12 @@
 	<section>
     <h1>Most Valuable Courses (MVC)</h1>
     <article>
-    <img src="./images/what_is_it.jpg" alt="Music on the Mind Picture">
     <p>
-      <strong>IS 117:</strong> Taught me about web development. I already had experience with web design from high school when I took a web design class in junior year. It was my first elective course that I ever took in college, mainly because I knew that I'd do well since I already had knowledge of it. I learned so much in this class and made a really great looking project that I actually used as a <a href="https://web.njit.edu/~jsa48/FinalProjectSite/finalProjectIndex.html">direct template for this current project</a>. Talk about utilizing your resources!<br><br>
-	  <strong>IT 202:</strong> Taught me about the backend aspects of web development. I learned about PHP (even though I'm still not very good at it) IT 340, IT 610, IT 640 and IT 635. This is a tricky thing to explain. The textbook definition of music is: &quot;1. vocal or instrumental sounds (or both) combined in such a way as to produce beauty of form, harmony, and expression of emotion&quot; or &quot;2. The written or printed signs representing vocal or instrumental sound.&quot;It's not to say that these textbook definitions are wrong per se, but it is hard to grasp the definition of something that has been around since the dawn of time and that everyone perceives differently.</p>
-    <p>Music is, in layman's terms, a form of expression. You can write a song about absolutely nothing, or you can pour your heart and soul into a song. You can make a song full of hidden meanings, like PSY's &quot;Gangnam Style&quot;, or it can be very straightforward, like every song off of Beyonce's album <em>Lemonade</em>.<br />
+      <strong>IS 117:</strong> Taught me about web development. I already had experience with web design from high school when I took a web design class in junior year, so this was my first elective course that I ever took in college. This class took my web design skills to new levels and made a really great looking project that I actually used as a <a href="https://web.njit.edu/~jsa48/FinalProjectSite/finalProjectIndex.html">direct template for this current project</a>, hence, the header tagline <em>Remember the Music</em>. Talk about utilizing your resources!<br><br>
+	  <strong>IT 202:</strong> Taught me about the backend aspects of web development. I learned about PHP, JavaScript and a little AJAX as well Though I still don't really know my way around all of them yet, this class gave me the building blocks I needed to get this project up and running!<br><br>
+	  <strong>IT 240 & 340:</strong> Taught me about Linux/Unix command line, BASH and Perl scripting, and general system administration. I put these two together because they both equally kickstarted my interest in pursuing a career utilizing these technologies (which I start in August!).<br><br>
+	  <strong>IT 610:</strong> Taught me how to use Docker and ultimately make a LAMP stack using it. Before IT610, I'd only used Docker sparingly for my very first summer internship in 2018. I had no idea how to use it and no one really helped me figure it out. Thanks to this course, I got to actually figure out my way around it and now it's my go-to in terms of web development and virtualization!<br><br>
+	  <strong>IT 635:</strong> Taught me about database administration. I'd learned about SQL in various undergrad classes, but never got to be as hands-on with it as I was in this class. I now know how to use various different database administration tools that I'd never heard of before, like PostgreSQL, MariaDB and MongoDB. It also allowed me to showcase how much I've really learned since I started at NJIT by making this huge project that I'm so proud of, and that's the most valuable thing a course can do in my eyes!
     </p>
     </article>
     </section>
@@ -49,6 +50,28 @@
 			<h3>April<br><a href="https://www.youtube.com/watch?v=ZZhwUqzeZpY">"The Art of Starting Over" by Demi Lovato</a></h3>
 			<img src="./images/taoso.jpg" alt="The Art of Starting Over Album Cover" height="100" width="100">
 		</aside>
+	<section>
+		<h1>Grammy Awarded Albums by My Top 10 Artists!</h1>
+		<?php
+			require_once("autoload.php");
+					
+			$dbc = mysqli_connect($host, $username, $password, $dbname);
+					
+			if(! $dbc ) {
+				die("Connection to $dbname failed: " . mysqli_connect_error());
+			}
+					
+			$query = mysqli_query($dbc, "SELECT grammy_category,win_artist,win_album,win_year FROM grammy_wins WHERE win_media_type='album' ORDER BY win_year ASC")
+				or die (mysqli_error($dbc).$query);
+			echo "<ul>";
+			while ($row = mysqli_fetch_array($query)) {
+				echo "<li><strong>{$row['win_album']}</strong> by {$row['win_artist']} <em>({$row['grammy_category']}, {$row['win_year']})</em></li>";
+			}
+			echo "</ul>";
+
+			mysqli_close($dbc);
+		?>
+	</section>
 	</main>
 	<footer>
 		<p>&copy; 2021, J.S.A. Productions, Piscataway, NJ 08854</p>
