@@ -48,47 +48,47 @@
 		<section>
 		<h1>Roll Credits! (Database Info)</h1>
 	<ul>
-		<li><strong>artists</strong><ul>
-			<li>name varchar(100) PRIMARY KEY</li>
-			<li>genre varchar(100)</li>
-			<li>record_label varchar(100) DEFAULT NULL</li></ul>
+		<li><u><strong>artists</strong></u><ul>
+			<li><strong>name</strong> varchar(100) <strong>PRIMARY KEY</strong></li>
+			<li><strong>genre</strong> varchar(100)</li>
+			<li><strong>record_label</strong> varchar(100) DEFAULT NULL</li></ul>
 		</li>
-		<li><strong>valid_media_type</strong><ul>
-			<li>mtype varchar(5) PRIMARY KEY</li></ul>
+		<li><u><strong>valid_media_type</strong></u><ul>
+			<li><strong>mtype</strong> varchar(5) <strong>PRIMARY KEY</strong></li></ul>
 		</li>
-		<li><strong>music_catalog</strong><ul>
-			<li>artist varchar(100)</li>
-			<li>id int(4) UNIQUE</li>
-			<li>media_type varchar(5) DEFAULT NULL</li>
-			<li>song_name varchar(100) DEFAULT ''</li>
-			<li>collab boolean DEFAULT NULL</li>
-			<li>collab_artists varchar(255) DEFAULT NULL</li>
-			<li>album_name varchar(100) DEFAULT ''</li>
-			<li>release_year varchar(4) DEFAULT NULL</li>
+		<li><u><strong>music_catalog</strong></u><ul>
+			<li><strong>artist</strong> varchar(100)</li>
+			<li><strong>id</strong> int(4) UNIQUE</li>
+			<li><strong>media_type</strong> varchar(5) DEFAULT NULL</li>
+			<li><strong>song_name</strong> varchar(100) DEFAULT ''</li>
+			<li><strong>collab</strong> boolean DEFAULT NULL</li>
+			<li><strong>collab_artists</strong> varchar(255) DEFAULT NULL</li>
+			<li><strong>album_name</strong> varchar(100) DEFAULT ''</li>
+			<li><strong>release_year</strong> varchar(4) DEFAULT NULL</li>
 			<li><strong>PRIMARY KEY:</strong> (id, artist, song_name, album_name)</li>
 			<li><strong>FOREIGN KEYS:</strong><ul>
 				<li>artist REFERENCES artists(name)</li>
 				<li>media_type REFERENCES valid_media_type(mtype)</li></ul>
 			</li></ul>
 		</li>
-		<li><strong>grammy_wins</strong><ul>
-			<li>media_id int(4) DEFAULT NULL</li>
-			<li>grammy_category varchar(255)</li>
-			<li>win_artists varchar(100)</li>
-			<li>win_song varchar(100) DEFAULT NULL</li>
-			<li>win_album varchar(100) DEFAULT NULL</li>
-			<li>win_media_type varchar(100) DEFAULT NULL</li>
-			<li>win_year varchar(4)</li>
-			<li><strong>PRIMARY KEY:</strong>(win_artist, grammy_category, win_year)</li>
+		<li><u><strong>grammy_wins</strong></u><ul>
+			<li><strong>media_id</strong> int(4) DEFAULT NULL</li>
+			<li><strong>grammy_category</strong> varchar(255)</li>
+			<li><strong>win_artists</strong> varchar(100)</li>
+			<li><strong>win_song</strong> varchar(100) DEFAULT NULL</li>
+			<li><strong>win_album</strong> varchar(100) DEFAULT NULL</li>
+			<li><strong>win_media_type</strong> varchar(100) DEFAULT NULL</li>
+			<li><strong>win_year</strong> varchar(4)</li>
+			<li><strong>PRIMARY KEY:</strong> (win_artist, grammy_category, win_year)</li>
 			<li><strong>FOREIGN KEYS:</strong><ul>
 				<li>(media_id, win_artist, win_song, win_album) REFERENCES music_catalog(id, artist, song_name, album_name)</li>
 				<li>win_media_type REFERENCES valid_media_type(mtype)</li></ul>
 			</li></ul>
 		</li>
-		<li><strong>riaa_certifications</strong><ul>
-			<li>media_id int(4) PRIMARY KEY</li>
-			<li>riaa_cert varchar(100) DEFAULT NULL</li>
-			<li><strong>FOREIGN KEY:</strong>media_id REFERENCES music_catalog(id)</li></ul>
+		<li><u><strong>riaa_certifications</strong></u><ul>
+			<li><stonrg>media_id</strong> int(4) <strong>PRIMARY KEY</strong></li>
+			<li><strong>riaa_cert</strong> varchar(100) DEFAULT NULL</li>
+			<li><strong>FOREIGN KEY:</strong> media_id REFERENCES music_catalog(id)</li></ul>
 		</li>
 	</ul>
 		</section>
