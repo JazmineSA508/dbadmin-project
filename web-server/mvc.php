@@ -51,7 +51,7 @@
 			<img src="./images/taoso.jpg" alt="The Art of Starting Over Album Cover" height="100" width="100">
 		</aside>
 	<section>
-		<h1>Grammy Awarded Albums by My Top 10 Artists!</h1>
+		<h1>Grammy Awarded Songs by my Top 10 Artists!</h1>
 		<?php
 			require_once("autoload.php");
 					
@@ -61,11 +61,11 @@
 				die("Connection to $dbname failed: " . mysqli_connect_error());
 			}
 					
-			$query = mysqli_query($dbc, "SELECT grammy_category,win_artist,win_album,win_year FROM grammy_wins WHERE win_media_type='album' ORDER BY win_year ASC")
+			$query = mysqli_query($dbc, "SELECT grammy_category,win_artist,win_song,win_year FROM grammy_wins WHERE win_media_type='song' ORDER BY win_song ASC")
 				or die (mysqli_error($dbc).$query);
 			echo "<ul>";
 			while ($row = mysqli_fetch_array($query)) {
-				echo "<li><strong>{$row['win_album']}</strong> by {$row['win_artist']} <em>({$row['grammy_category']}, {$row['win_year']})</em></li>";
+				echo "<li><strong>{$row['win_song']}</strong> by {$row['win_artist']} <em>({$row['grammy_category']}, {$row['win_year']})</em></li>";
 			}
 			echo "</ul>";
 

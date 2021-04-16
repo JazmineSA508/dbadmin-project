@@ -28,9 +28,12 @@
 	</nav>
 	<main>
 		<section>
-			<h1>What are Musical Keys?</h1>
-            <p><img src="./images/music_keys.jpg" alt="The 12 Keys of Music" width="424" height="252"></p>
-			<p>A music key is the most important part of music besides the time signature (explained below) and the notes themselves. It tells the sharps and flats used in the song and the scale that the song is based on. Sharps are pitches that are in the middle of a note and the note after it; Flats are pitches that are in the middle of a note and the note before it; and playing a note the way it normally sounds is called a natural. As listed in the picture, there are 12 music keys that can be played.</p>
+			<h1>So...What's Next? (TBDs)</h1>
+			<ul>
+				<li><strong>Academics:</strong> I am DONE with school for the forseeable future! My parents put me in school really early (2 years old), and I'm turning 23 this year. I think 20+ years of schooling is MORE than enough, especially since I'll have my B.S. in Information Technology and M.S. in IT Administration and Security. Maybe further down the line I'll consider pursuing a PhD, but for now I can't wait to experience life outside of school!</li>
+				<li><strong>Work:</strong> I received a job offer back in November to work as an Infrastructure Engineer and will be starting in August! I'm really excited to start working. I've worked 3 internships during my time here at NJIT that each gave me priceless knowledge and experience to help me not only continue my studies, but also to narrow down what I want to do in my career, what my strengths and weaknesses are on the job, and how to properly work in a corporate IT environment. Even though the job is currently set to start virtually, I can't wait to begin my first adult job!</li>
+				<li><strong>Life:</strong> All my life I've always had a plan and when things didn't go as expected, I was quick to adapt and change to keep myself on the path I wanted to be on. But now, I've accomplished everything I set out to do. I got the job doing what I wanted, I have a stable relationship going on 5-years strong and I'm finishing my Master's degree only a year after receiving my Bachelor's degree. So, for now, I'm honestly just feeling it out as I go. Until I hit a roadblock or have some other goals to achieve, I'm just going to take life one day at a time and try to live life to the fullest. I'm excited to see what the universe has in store for me!
+			</ul>
 		</section>
         <aside>
 			<h2>Song of the Month</h2>
@@ -44,9 +47,26 @@
 			<img src="./images/taoso.jpg" alt="The Art of Starting Over Album Cover" height="100" width="100">
 		</aside>
 			<section>
-            	<h1>What are Time Signatures?</h1>
-                <p><img src="./images/time_sig.jpg" alt="Simple Time Signatures"></p>
-            	<p>Time signatures are very important in a song. It is comprised of 2 numbers, one on top of the other. The top number represents the number of beats per measure/bar. The bottom number represents what kind of note gets 1 beat. Common Time, which is usually indicated by a &quot;c&quot;, is 4/4; this means that there are 4 beats/bar and a quarter note gets 1 beat. Fun fact: A waltz is usually in 3/4 time.</p>
+				<h1>Platinum Certified Albums by my Top 10 Artists!</h1>
+            	<?php
+					require_once("autoload.php");
+					
+					$dbc = mysqli_connect($host, $username, $password, $dbname);
+					
+					if(! $dbc ) {
+						die("Connection to $dbname failed: " . mysqli_connect_error());
+					}
+					
+					$query = mysqli_query($dbc, "SELECT music_catalog.album_name,music_catalog.artist,riaa_certifications.riaa_cert FROM music_catalog INNER JOIN riaa_certifications ON music_catalog.id=riaa_certifications.media_id WHERE media_type='album' && NOT riaa_cert='Gold' ORDER BY album_name ASC")
+						or die (mysqli_error($dbc).$query);
+					echo "<ul>";
+					while ($row = mysqli_fetch_array($query)) {
+						echo "<li><strong>{$row['album_name']}</strong> by {$row['artist']} <em>({$row['riaa_cert']})</em></li>";
+					}
+					echo "</ul>";
+
+					mysqli_close($dbc);
+				?>
 			</section>
 	</main>
 	<footer>

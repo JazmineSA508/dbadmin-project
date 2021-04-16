@@ -52,7 +52,7 @@
 			<img src="./images/taoso.jpg" alt="The Art of Starting Over Album Cover" height="100" width="100">
 		</aside>
 			<section>
-           	  <h1>Top 10 Songs That Got Me Through 2020!</h1>
+           	  <h1>Top 10 Songs that got me through 2020!</h1>
 				<?php
 					require_once("autoload.php");
 					
